@@ -4,12 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.TimerTask;
 
 
 public class timer_main extends JFrame {
@@ -64,7 +59,7 @@ public class timer_main extends JFrame {
             public void run() {
                 timer_main frame = new timer_main(60);
                 try {
-                    frame.setIconImage(ImageIO.read(new File("img/timer-icon-7786.png")));
+                    frame.setIconImage(ImageIO.read(this.getClass().getResource("img/timer-icon-7786.png")));
                 }
                 catch (IOException exc) {
                     exc.printStackTrace();
@@ -88,8 +83,8 @@ public class timer_main extends JFrame {
                 button1.setBackground(WHITE);
                 try {
                     {
-                        String soundName = "img/181148__keweldog__timer-with-ding.wav";
-                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(soundName).getAbsoluteFile());
+                        String soundName = "sounds/181148__keweldog__timer-with-ding.wav";
+                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(this.getClass().getResource("sounds/181148__keweldog__timer-with-ding.wav"));
                         clip = AudioSystem.getClip();
                         clip.open(audioInputStream);
                         clip.start();
